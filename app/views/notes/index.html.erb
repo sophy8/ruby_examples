@@ -1,0 +1,23 @@
+<h1>Notes</h1>
+<h2><%= @idea.name %></h2>
+<%= link_to "New Notes", new_idea_note_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>Author</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notes.each do |note| %>
+      <tr>
+        <td><%= note.body %></td>
+        <td><%= note.author %></td>
+        <td><%= link_to 'Show', idea_note_path(@idea, note) %></td>
+        <td><%= link_to 'Edit', edit_idea_note_path(@idea, note) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
